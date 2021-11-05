@@ -23,7 +23,7 @@ As an Amazon Associate I earn from qualifying purchases. I get commissions for p
 I've had great success with the [Elfin-EW11A-0](https://amzn.to/3wgRHVm) from Hi-Flying Technology. It's a simple $24 RS-485 to WiFi device that takes an input voltage of 5-18VDC, has a web interface for remote admin and an external antenna. 
 
 #### Setup
-- Supply 5-18VDC to the 2 middle screw terminals as shown below to power up the unit
+- Supply 5-18VDC to the 2 middle screw terminals as shown [below](#ew11-interface-conversion-cable) to power up the unit
 - Connect to the wireless network named `EW11_D650`
 - Enter IP `10.10.100.254` and login with username: `admin` password: `admin`
 - Go to the system settings page and configure the **WiFi Settings** to match your network
@@ -95,6 +95,7 @@ Blue|RS-485 B/-
 
 You can now connect the wires as show in the image below to the screw block at the end of the EW11 interface cable. Ignore the extra RS-Note that you can disconnect the terminal block to make it easier to work with.
 
+#### EW11 Interface Conversion Cable
 ![Y-Cable](/images/EW11-Cable.png)
 
 Plug everything in and confirm you can access the web interface of the EW11. I drilled a small hole in the bottom of the hot tubs plastic media device enclosure, routed the cable in and stashed the EW11 in there. The media pocket has the added benefit of being unshielded, unlike the rest of the tub which has foil insulation.
