@@ -1,4 +1,6 @@
 FROM ruby:2.6-alpine
+LABEL org.opencontainers.image.source="https://github.com/jshank/bwalink"
+
 
 # Fix for dev tools from https://renehernandez.io/snippets/install-development-tools-in-alpine/
 # This also adds the build-base, uses it and then wipes out the tools to keep the image small
