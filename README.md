@@ -25,7 +25,7 @@ I've had great success with the [Elfin-EW11A-0](https://amzn.to/3wgRHVm) from Hi
 #### Setup
 - Supply 5-18VDC to the 2 middle screw terminals as shown [below](#ew11-interface-conversion-cable) to power up the unit
 - Connect to the wireless network named `EW11_D650`
-- Enter IP `10.10.100.254` and login with username: `admin` password: `admin`
+- In your browser, navigate to `10.10.100.254` and login with username: `admin` password: `admin`
 - Go to the system settings page and configure the **WiFi Settings** to match your network
 
 Value|Setting
@@ -40,7 +40,7 @@ STA KEY|*your wifi password*
 - Go to the **Others** page and click `Restart`
 - Determine which IP the device acquired from DHCP or use the static IP you assigned and enter it in your browser
 - Login with username: `admin` password: `admin`. This is a good time to change those and will only affect the web admin.
-- Go to the **Serial Port Settings* section and configure as follows
+- Go to the **Serial Port Settings** section and configure as follows
 
 Value|Setting
 -|-
@@ -51,7 +51,7 @@ Parity|None
 Protocol|None
 
 - Click `Submit`
-- Go to the **Communication Settings* section and configure as follows
+- Go to the **Communication Settings** section and configure as follows
 
 Value|Setting
 -|-
@@ -76,7 +76,7 @@ You'll need an [ATX Molex Micro Fit Connector](https://amzn.to/3wfJYqz) to conne
 - Good wire strippers/cutters
 - Multimeter
 
-My hot tub had a small Y-Cable hanging outside of the control box that you can plug into for power and to get to the RS-485 communications of the tub. If you don't have this cable, you can likely plug into the main control board IF it has the same outlet type. This should be the same type of connector that goes to your control panel.
+My hot tub had a small Y-Cable hanging outside of the control box that you can plug into for power and to get to the RS-485 communications of the tub. If you don't have this cable, you can likely plug into the main control board **if** it has the same outlet type. This should be the same type of connector that goes to your control panel.
 
 *Note that the tab is on the left of the connector*
 
@@ -86,26 +86,33 @@ The connection is an ATX Molex Micro Fit Connector 4Pin (no, not the same as you
 
 Disconnect the cable and solder ~36-inches of [Silicone coated wire](https://amzn.to/2YekehL) onto each of the ends using the color that corresponds to the pin. Use some [Heat Shrink Tubing](https://amzn.to/3BDXvcp) or electrical tape to protect your soldered connections. I suggest crimping some [22AWG ferrules](https://amzn.to/3BDi8FT) to the ends of those cables or you can just tin them and be careful. 
 
-Color|Wire
+Color|Pin/Wire
 -|-
 Red|DC +
 Black|Ground
 Yellow|RS-485 A/+
 Blue|RS-485 B/-
 
-You can now connect the wires as show in the image below to the screw block at the end of the EW11 interface cable. Ignore the extra RS-Note that you can disconnect the terminal block to make it easier to work with.
+You can now connect the wires as show in the image below to the screw block at the end of the EW11 interface cable. 
+
+> **_NOTE:_**  You can disconnect the terminal block to make it easier to work with.
+
+
 
 #### EW11 Interface Conversion Cable
 ![Y-Cable](/images/EW11-Cable.png)
 
-Plug everything in and confirm you can access the web interface of the EW11. I drilled a small hole in the bottom of the hot tubs plastic media device enclosure, routed the cable in and stashed the EW11 in there. The media pocket has the added benefit of being unshielded, unlike the rest of the tub which has foil insulation.
+Plug everything in and confirm you can access the web interface of the EW11. 
+
+I drilled a small hole in the bottom of the hot tubs plastic media device enclosure, routed the cable in and stashed the EW11 in there. The media pocket has the added benefit of being unshielded, unlike the rest of the tub which has foil insulation.
 
 ## BWALink Docker Setup
 *Installation and configuration of Docker and docker-compose are beyond the scope of this project as there are a plethora of good articles on setting up Docker.*
 
-Download or copy the [docker-compose.yaml](docker-compose.yaml) file and modify the `MQTT_URI` and `BRIDGE_IP` to match your set up. Run `docker-compose up -d` and let Docker do its magic. 
+- Download or copy the [docker-compose.yaml](docker-compose.yaml) file and modify the `MQTT_URI` and `BRIDGE_IP` to match your set up
+- Run `docker-compose up -d` and let Docker do its magic. 
 
-You can also execute `docker run --rm ghcr.io/jshank/bwalink:latest -e MQTT_URI='your_mqtt_uri' -e BRIDGE_IP='your_ew11_ip'`
+Alternatively, you can execute `docker run --rm ghcr.io/jshank/bwalink:latest -e MQTT_URI='your_mqtt_uri' -e BRIDGE_IP='your_ew11_ip'`
 
 If everything went well, you can subscribe to the `homie/#` topic of your MQTT broker and should see something like this:
 
