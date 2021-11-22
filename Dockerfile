@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.source="https://github.com/jshank/bwalink"
 # Installing socat to link the serial over IP device
 RUN apk update && apk add --no-cache build-base && \
     bundle config set deployment 'true' && \
-    gem install balboa_worldwide_app --version "1.3.1" --source "https://rubygems.pkg.github.com/jshank" && \
+    gem install balboa_worldwide_app && \
     apk add --no-cache socat && \
     apk del build-base && \
     rm -rf /var/cache/apk/*
