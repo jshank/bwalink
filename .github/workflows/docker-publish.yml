@@ -16,6 +16,7 @@ on:
     tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -45,6 +46,7 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          tags: latest
           
       - name: Login to GPR
         run: |
