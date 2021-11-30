@@ -46,7 +46,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          tags: latest
           
       - name: Login to GPR
         run: |
