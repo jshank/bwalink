@@ -2,7 +2,7 @@ version: "3"
 services:
   bwalink:
     # build: .
-    image: ghcr.io/jshank/bwalink:latest
+    image: ghcr.io/jshank/bwalink:master
     container_name: bwalink
     restart: unless-stopped
     environment:
