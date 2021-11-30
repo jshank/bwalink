@@ -69,7 +69,7 @@ jobs:
           tags: |
             # type=raw,value=latest
             type=ref,event=tag
-            type=semver,pattern={{version}},value=v2021.11
+            type=pep440,pattern={{version}},value=2021.11
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
