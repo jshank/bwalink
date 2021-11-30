@@ -11,7 +11,6 @@ RUN apk update && apk add --no-cache build-base && \
     apk del build-base && \
     rm -rf /var/cache/apk/*
 
-
 # See https://iotbyhvm.ooo/using-uris-to-connect-to-a-mqtt-server/ for MQTT_URI format
 # BRIDGE_IP and BRIDGE_PORT are the address and port for your serial to IP device or 
 # host running ser2net, socat or ESPEasy serial server
