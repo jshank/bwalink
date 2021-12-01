@@ -152,7 +152,7 @@ homie/bwa/spa/heatingmode ready
 
 
 ## Home Assistant Configuration
-You can now setup Home Assistant using the following yaml configurations that represent the sensors and switches of your tubs functions. 
+If you have [MQTT Discovery](https://www.home-assistant.io/docs/mqtt/discovery/) enabled, Home Assistant will get a new BWA device along with all of the discovered sensors and switches for the spa. Otherwise, you'll need to manually create them as follows.
 
 #### Switches
 ```yaml
