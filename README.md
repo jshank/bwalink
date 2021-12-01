@@ -112,6 +112,8 @@ I drilled a small hole in the bottom of the hot tubs plastic media device enclos
 - Download or copy the [docker-compose.yaml](docker-compose.yaml) file and modify the `MQTT_URI` and `BRIDGE_IP` to match your set up
 - Run `docker-compose up -d` and let Docker do its magic. 
 
+> **_NOTE:_** MQTT_URI must be properly escaped, e.g. `mqtt://useename:pa##word@10.1.10.2` would need to be `mqtt://username:pa%23%23word@10.1.10.2`. See https://www.urlencoder.org/ for details.
+
 Alternatively, you can execute `docker run --rm ghcr.io/jshank/bwalink:latest -e MQTT_URI='your_mqtt_uri' -e BRIDGE_IP='your_ew11_ip'`
 
 If everything went well, you can subscribe to the `homie/#` topic of your MQTT broker and should see something like this:
