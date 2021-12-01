@@ -1,3 +1,17 @@
+
+# bwalink
+
+This is a docker container for https://github.com/ccutrer/balboa_worldwide_app that supports a remote serial to IP device or host running ser2net, socat or ESPEasy serial server.
+
+
+There are 3 components to this solution:
+- A serial to IP device
+- Serial to MQTT which this docker image hosts
+- MQTT to Home Assistant
+
+*Installation and configuration of MQTT are beyond the scope of this project as there are a plethora of good articles on setting up an MQTT broker.*
+
+## Table of Contents
 - [bwalink](#bwalink)
   * [Disclaimers and Legal Stuff First](#disclaimers-and-legal-stuff-first)
   * [Serial to IP Device](#serial-to-ip-device)
@@ -14,18 +28,6 @@
       - [Automations to support the selectors](#automations-to-support-the-selectors)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-# bwalink
-
-This is a docker container for https://github.com/ccutrer/balboa_worldwide_app that supports a remote serial to IP device or host running ser2net, socat or ESPEasy serial server.
-
-
-There are 3 components to this solution:
-- A serial to IP device
-- Serial to MQTT which this docker image hosts
-- MQTT to Home Assistant
-
-*Installation and configuration of MQTT are beyond the scope of this project as there are a plethora of good articles on setting up an MQTT broker.*
-
 
 ## Disclaimers and Legal Stuff First
 
