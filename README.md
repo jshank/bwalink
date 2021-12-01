@@ -1,3 +1,19 @@
+- [bwalink](#bwalink)
+  * [Disclaimers and Legal Stuff First](#disclaimers-and-legal-stuff-first)
+  * [Serial to IP Device](#serial-to-ip-device)
+    + [Elfin-EW11A-0](#elfin-ew11a-0)
+      - [Setup](#setup)
+      - [Connection Cable](#connection-cable)
+      - [EW11 Interface Conversion Cable](#ew11-interface-conversion-cable)
+  * [BWALink Docker Setup](#bwalink-docker-setup)
+  * [Home Assistant Configuration](#home-assistant-configuration)
+      - [Switches](#switches)
+      - [Sensors](#sensors)
+      - [Numbers](#numbers)
+      - [Input Select](#input-select)
+      - [Automations to support the selectors](#automations-to-support-the-selectors)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 # bwalink
 
 This is a docker container for https://github.com/ccutrer/balboa_worldwide_app that supports a remote serial to IP device or host running ser2net, socat or ESPEasy serial server.
