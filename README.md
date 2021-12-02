@@ -1,3 +1,4 @@
+
 # bwalink
 
 This is a docker container for https://github.com/ccutrer/balboa_worldwide_app that supports a remote serial to IP device or host running ser2net, socat or ESPEasy serial server.
@@ -10,6 +11,23 @@ There are 3 components to this solution:
 
 *Installation and configuration of MQTT are beyond the scope of this project as there are a plethora of good articles on setting up an MQTT broker.*
 
+## Table of Contents
+- [bwalink](#bwalink)
+  * [Disclaimers and Legal Stuff First](#disclaimers-and-legal-stuff-first)
+  * [Serial to IP Device](#serial-to-ip-device)
+    + [Elfin-EW11A-0](#elfin-ew11a-0)
+      - [Setup](#setup)
+      - [Connection Cable](#connection-cable)
+      - [EW11 Interface Conversion Cable](#ew11-interface-conversion-cable)
+  * [BWALink Docker Setup](#bwalink-docker-setup)
+  * [Home Assistant Configuration](#home-assistant-configuration)
+      - [Switches](#switches)
+      - [Sensors](#sensors)
+      - [Numbers](#numbers)
+      - [Input Select](#input-select)
+      - [Automations to support the selectors](#automations-to-support-the-selectors)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## Disclaimers and Legal Stuff First
 
@@ -112,6 +130,8 @@ I drilled a small hole in the bottom of the hot tubs plastic media device enclos
 - Download or copy the [docker-compose.yaml](docker-compose.yaml) file and modify the `MQTT_URI` and `BRIDGE_IP` to match your set up
 - Run `docker-compose up -d` and let Docker do its magic. 
 
+> **_NOTE:_** MQTT_URI must be properly escaped, e.g. `mqtt://useename:pa##word@10.1.10.2` would need to be `mqtt://username:pa%23%23word@10.1.10.2`. See https://www.urlencoder.org/ for details.
+
 Alternatively, you can execute `docker run --rm ghcr.io/jshank/bwalink:latest -e MQTT_URI='your_mqtt_uri' -e BRIDGE_IP='your_ew11_ip'`
 
 If everything went well, you can subscribe to the `homie/#` topic of your MQTT broker and should see something like this:
@@ -132,7 +152,7 @@ homie/bwa/spa/heatingmode ready
 
 
 ## Home Assistant Configuration
-You can now setup Home Assistant using the following yaml configurations that represent the sensors and switches of your tubs functions. 
+If you have [MQTT Discovery](https://www.home-assistant.io/docs/mqtt/discovery/) enabled, Home Assistant will get a new BWA device along with all of the discovered sensors and switches for the spa. Otherwise, you'll need to manually create them as follows.
 
 #### Switches
 ```yaml
