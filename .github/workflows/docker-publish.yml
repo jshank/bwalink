@@ -8,14 +8,14 @@ name: Docker
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
       - 'Dockerfile'
       - 'docker-entrypoint.sh'
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 env:
