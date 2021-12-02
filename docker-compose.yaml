@@ -1,17 +1,17 @@
 version: "3"
 services:
   bwalink:
-    # build: .
     image: ghcr.io/jshank/bwalink:latest
     container_name: bwalink
     restart: unless-stopped
     environment:
       # See https://iotbyhvm.ooo/using-uris-to-connect-to-a-mqtt-server/ for MQTT_URI format
+      # MQTT_URI *must* be properly URI encoded, e.g. mqtt://useename:pa##word@10.1.10.2 would 
+      # be mqtt://username:pa%23%23word@10.1.10.2
       # BRIDGE_IP and BRIDGE_PORT are the address and port for your serial to IP device or 
       # host running ser2net, socat or ESPEasy serial server
       MQTT_URI: mqtt://balboa:balboa@10.1.10.2 
       BRIDGE_IP: 10.1.12.127
       BRIDGE_PORT: 8899
-    volumes: 
-      - "/etc/timezone:/etc/timezone:ro" 
-      - "/etc/localtime:/etc/localtime:ro"
+      TZ: America/Los_Angeles 
+      LOG_LEVEL: WARN # Any of FATAL, ERROR, WARN, INFO or DEBUG

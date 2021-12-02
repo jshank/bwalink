@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.source="https://github.com/jshank/bwalink"
 RUN apk update && apk add --no-cache build-base && \
     bundle config set deployment 'true' && \
     gem install balboa_worldwide_app && \
-    apk add --no-cache socat && \
+    apk add --no-cache socat tzdata && \
     apk del build-base && \
     rm -rf /var/cache/apk/*
 
