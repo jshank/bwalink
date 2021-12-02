@@ -13,7 +13,7 @@ on:
       - 'Dockerfile'
       - 'docker-entrypoint.sh'
     # Publish semver tags as releases.
-    tags: [ '*.*.*' ]
+    tags: [ '*.*' ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
