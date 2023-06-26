@@ -16,9 +16,6 @@ configuration:
       be mqtt://username:pa%23%23word@10.1.10.2
       BRIDGE_IP and BRIDGE_PORT are the address and port for your serial to IP device or 
       host running ser2net, socat or ESPEasy serial server. If empty, will fall back to the official MQTT addon
-  timezone:
-    name: Time Zone
-    description: Server time zone
   log_level:
     name: Log Level
     description: Any of FATAL, ERROR, WARN, INFO or DEBUG

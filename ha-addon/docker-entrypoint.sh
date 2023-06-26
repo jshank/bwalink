@@ -4,9 +4,10 @@ bashio::log.info "Starting BWALink addon..."
 
 BRIDGE_IP=$(bashio::config 'bridge_ip')
 BRIDGE_PORT=$(bashio::config 'bridge_port')
-export TZ=$(bashio::config 'timezone')
+export TZ=$(bashio::info.timezone)
 export LOG_LEVEL=$(bashio::config 'log_level')
 
+bashio::log.info "Setting addon timezone to ${TZ} based on the system timezone."
 
 if bashio::config.has_value 'mqtt_uri'; then
     MQTT_URI=$(bashio::config 'mqtt_uri')
@@ -33,7 +34,7 @@ else
     DEVICE="tcp://${BRIDGE_IP}:${BRIDGE_PORT}/"
 fi
 
-bashio::log.info "Starting mqtt bridge connecting ${DEVICE} to  ${MQTT_URI/:*@/://}"
+bashio::log.info "Starting mqtt bridge connecting ${DEVICE} to ${MQTT_URI/:*@/://}"
 
 #Launch the bwa_mqtt_bridge 
 #/usr/local/bundle/bin/bwa_mqtt_bridge ${MQTT_URI} /dev/hottub
