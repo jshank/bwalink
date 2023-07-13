@@ -150,6 +150,22 @@ homie/bwa/spa/priming/$datatype boolean
 homie/bwa/spa/heatingmode ready
 ```
 
+## Run BWALink as a Home Aassistant Addon
+*If you use Home Assistant, you don't need to run your own docker setup - you can run it as an addon.*
+
+- Under `/addons`, create a new directory called `bwalink`. More info: [Tutorial: Making your first add-on](https://developers.home-assistant.io/docs/add-ons/tutorial/)
+- Copy the full content of [ha-addon](ha-addon) into the new directory
+- Open the Home Assistant frontend
+- Go to "Settings"
+- Click on "Add-ons"
+- Click "add-on store" in the bottom right corner.
+- On the top right overflow menu, click the "Check for updates" button
+- You should now see a new section at the top of the store called "Local add-ons" that lists your add-on!
+- Click on your add-on to go to the add-on details page.
+- Install your add-on
+- Adjust configuration
+- Start your add-on
+- Click on the "Logs" tab, and refresh the logs of your add-on, you should now see the details in your logs.
 
 ## Home Assistant Configuration
 If you have [MQTT Discovery](https://www.home-assistant.io/docs/mqtt/discovery/) enabled, Home Assistant will get a new BWA device along with all of the discovered sensors and switches for the spa. Otherwise, you'll need to manually create them as follows.

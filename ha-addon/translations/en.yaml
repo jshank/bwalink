@@ -1,0 +1,21 @@
+configuration:
+  bridge_ip:
+    name: Bridge IP
+    description: Serial to IP device address.
+  bridge_port:
+    name: Bridge Port
+    description: Serial to IP device port. Defaults to 8899
+  socat:
+    name: SOcket CAT
+    description: Use socat or direct call to the gateway
+  mqtt_uri:
+    name: MQTT URI
+    description: |
+      See https://iotbyhvm.ooo/using-uris-to-connect-to-a-mqtt-server/ for MQTT_URI format
+      MQTT_URI *must* be properly URI encoded, e.g. mqtt://useename:pa##word@10.1.10.2 would 
+      be mqtt://username:pa%23%23word@10.1.10.2
+      BRIDGE_IP and BRIDGE_PORT are the address and port for your serial to IP device or 
+      host running ser2net, socat or ESPEasy serial server. If empty, will fall back to the official MQTT addon
+  log_level:
+    name: Log Level
+    description: Any of FATAL, ERROR, WARN, INFO or DEBUG
