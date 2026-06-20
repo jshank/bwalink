@@ -1,5 +1,4 @@
-ARG BUILD_FROM
-FROM ${BUILD_FROM}
+FROM ghcr.io/home-assistant/base:latest
 
 # Update and install necessary packages in a single RUN to reduce image layers
 RUN apk update && apk add --no-cache \
